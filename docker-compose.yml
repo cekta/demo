@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  balancer:
+    image: nginx
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 8080:80
+  application:
+    image: php:fpm
+    volumes:
+      - ./app:/app

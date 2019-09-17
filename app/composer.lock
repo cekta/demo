@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72758c7bed518147af717e375370e2f1",
+    "content-hash": "2bb6776a2d5126d8f0a73f6c921a5565",
     "packages": [
         {
             "name": "cekta/http-server",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cekta/http-server.git",
-                "reference": "dbccc1479136a6003efaaabd7823bc8eb9f1289b"
+                "reference": "63ce6ede23f4e8ef45edac27d46d16b4f8d61931"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cekta/http-server/zipball/dbccc1479136a6003efaaabd7823bc8eb9f1289b",
-                "reference": "dbccc1479136a6003efaaabd7823bc8eb9f1289b",
+                "url": "https://api.github.com/repos/cekta/http-server/zipball/63ce6ede23f4e8ef45edac27d46d16b4f8d61931",
+                "reference": "63ce6ede23f4e8ef45edac27d46d16b4f8d61931",
                 "shasum": ""
             },
             "require": {
@@ -39,7 +39,7 @@
                     "email": "smpl@itmywork.com"
                 }
             ],
-            "time": "2019-09-01T14:25:08+00:00"
+            "time": "2019-09-09T17:18:50+00:00"
         },
         {
             "name": "cekta/routing",
@@ -47,12 +47,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cekta/routing.git",
-                "reference": "48e67003c4cd7ccefd33d35dc7c1fa3ab872743c"
+                "reference": "ba1675fdc2b8890f8c2b6cba6124ef6865272662"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cekta/routing/zipball/48e67003c4cd7ccefd33d35dc7c1fa3ab872743c",
-                "reference": "48e67003c4cd7ccefd33d35dc7c1fa3ab872743c",
+                "url": "https://api.github.com/repos/cekta/routing/zipball/ba1675fdc2b8890f8c2b6cba6124ef6865272662",
+                "reference": "ba1675fdc2b8890f8c2b6cba6124ef6865272662",
                 "shasum": ""
             },
             "require": {
@@ -76,7 +76,139 @@
                     "email": "smpl@itmywork.com"
                 }
             ],
-            "time": "2019-09-01T10:43:31+00:00"
+            "time": "2019-09-14T23:21:32+00:00"
+        },
+        {
+            "name": "cekta/routing-nikic",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cekta/routing-nikic.git",
+                "reference": "9d2939240c3c14fe23636fb0c62bc55958af0a7e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cekta/routing-nikic/zipball/9d2939240c3c14fe23636fb0c62bc55958af0a7e",
+                "reference": "9d2939240c3c14fe23636fb0c62bc55958af0a7e",
+                "shasum": ""
+            },
+            "require": {
+                "cekta/routing": "@dev",
+                "nikic/fast-route": "^1.3",
+                "psr/container": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cekta\\Routing\\Nikic\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeniy Kuvshinov",
+                    "email": "smpl@itmywork.com"
+                }
+            ],
+            "time": "2019-09-15T13:55:08+00:00"
+        },
+        {
+            "name": "nikic/fast-route",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/FastRoute.git",
+                "reference": "181d480e08d9476e61381e04a71b34dc0432e812"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/FastRoute/zipball/181d480e08d9476e61381e04a71b34dc0432e812",
+                "reference": "181d480e08d9476e61381e04a71b34dc0432e812",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35|~5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FastRoute\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov",
+                    "email": "nikic@php.net"
+                }
+            ],
+            "description": "Fast request router for PHP",
+            "keywords": [
+                "router",
+                "routing"
+            ],
+            "time": "2018-02-13T20:26:39+00:00"
+        },
+        {
+            "name": "psr/container",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "time": "2017-02-14T16:28:37+00:00"
         },
         {
             "name": "psr/http-factory",
@@ -357,6 +489,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "cekta/routing-nikic": 20,
         "cekta/http-server": 20
     },
     "prefer-stable": true,

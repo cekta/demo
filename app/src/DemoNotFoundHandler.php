@@ -8,10 +8,10 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Diactoros\Response\JsonResponse;
 
-class DemoHandler implements RequestHandlerInterface
+class DemoNotFoundHandler implements RequestHandlerInterface
 {
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        return new JsonResponse(['hello world', 'middleware: ' . $request->getAttribute('middleware')]);
+        return (new JsonResponse(['not found']))->withStatus(404);
     }
 }

@@ -11,6 +11,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
+        "cekta/routing-nikic": "@dev",
         "cekta/http-server": "@dev",
         "zendframework/zend-diactoros": "^2.1"
     },

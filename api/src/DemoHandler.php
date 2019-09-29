@@ -12,6 +12,6 @@ class DemoHandler implements RequestHandlerInterface
 {
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        return new JsonResponse(['hello world', 'middleware: ' . $request->getAttribute('middleware')]);
+        return new JsonResponse(['hello from docker', 'middleware: ' . $request->getAttribute('middleware')]);
     }
 }

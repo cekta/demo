@@ -16,7 +16,7 @@ class MyMatcher extends Matcher
         ProviderMiddleware $providerMiddleware
     ) {
         /** @var DispatcherBuilder $builder */
-        $builder = require __DIR__ . '/../route.php';
+        $builder = require __DIR__ . '/../app/route.php';
         $notFound = new Handler(DemoNotFoundHandler::class);
         parent::__construct(
             $notFound,

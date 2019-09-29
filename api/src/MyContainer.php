@@ -11,7 +11,7 @@ class MyContainer extends Container
 {
     public function __construct()
     {
-        $providers[] = KeyValue::stringToAlias(require __DIR__ . '/../implementation.php');
+        $providers[] = KeyValue::stringToAlias(require __DIR__ . '/../app/implementation.php');
         $providers[] = new Autowiring();
         parent::__construct(...$providers);
     }

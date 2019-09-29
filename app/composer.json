@@ -13,7 +13,8 @@
     "require": {
         "cekta/routing-nikic": "@dev",
         "cekta/http-server": "@dev",
-        "zendframework/zend-diactoros": "^2.1"
+        "zendframework/zend-diactoros": "^2.1",
+        "cekta/di": "^0.1.0"
     },
     "autoload": {
         "psr-4": {

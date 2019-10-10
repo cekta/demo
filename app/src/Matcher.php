@@ -3,23 +3,23 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\HTTP\Hello;
+use App\HTTP\NotFound;
 use Cekta\Routing\Nikic\DispatcherBuilder;
 use Cekta\Routing\Nikic\Handler;
-use Cekta\Routing\Nikic\Matcher;
 use Cekta\Routing\Nikic\ProviderHandler;
 use Cekta\Routing\Nikic\ProviderMiddleware;
 
-class MyMatcher extends Matcher
+class Matcher extends \Cekta\Routing\Nikic\Matcher
 {
     public function __construct(
         ProviderHandler $providerHandler,
         ProviderMiddleware $providerMiddleware
     ) {
-        /** @var DispatcherBuilder $builder */
-        $builder = require __DIR__ . '/../app/route.php';
-        $notFound = new Handler(DemoNotFoundHandler::class);
+        $builder = new DispatcherBuilder();
+        $builder->get('/', Hello::class);
         parent::__construct(
-            $notFound,
+            new Handler(NotFound::class),
             $builder->build(),
             $providerHandler,
             $providerMiddleware

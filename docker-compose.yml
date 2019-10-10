@@ -1,12 +1,19 @@
 version: '3.7'
 services:
-  balancer:
+  nginx:
     image: nginx
     volumes:
-      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     ports:
       - 8080:80
-  api:
-    image: php:fpm
+    depends_on:
+      - app
+  app:
+    build:
+      context: ./app
+      target: developer
+    environment:
+      - XDEBUG_CONFIG=idekey=app remote_enable=1 remote_host=${DOCKER_HOST_IP}
+      - PHP_IDE_CONFIG=serverName=app
     volumes:
-      - ./api:/app
+      - ./app:/app

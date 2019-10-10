@@ -1,17 +1,17 @@
 <?php
 declare(strict_types=1);
 
-namespace App;
+namespace App\HTTP;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Diactoros\Response\JsonResponse;
 
-class DemoHandler implements RequestHandlerInterface
+class Hello implements RequestHandlerInterface
 {
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        return new JsonResponse(['hello from docker', 'middleware: ' . $request->getAttribute('middleware')]);
+        return new JsonResponse(['hello from cekta']);
     }
 }

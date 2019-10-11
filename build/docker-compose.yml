@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: ../app
+      target: production
+    # todo set image
+    #image: cekta/demo:app
+
+  nginx:
+    build:
+      context: ../nginx
+      target: production
+    # todo set image
+    #image: cekta/demo:nginx

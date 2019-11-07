@@ -14,7 +14,7 @@
         "cekta/routing-nikic": "@dev",
         "cekta/http-server": "@dev",
         "zendframework/zend-diactoros": "^2.1",
-        "cekta/di": "^0.1.0",
+        "cekta/di": "^0.2.0",
         "vlucas/phpdotenv": "^3.6"
     },
     "autoload": {

@@ -36,7 +36,7 @@ class Container extends \Cekta\DI\Container
             return $value;
         },$_SERVER + $_ENV + getenv()));
         $providers[] = KeyValue::stringToAlias(require __DIR__ . '/../implementation.php');
-        $providers[] = KeyValue::closureToService(require __DIR__ . '/../service.php');
+        $providers[] = new KeyValue(require __DIR__ . '/../service.php');
         $providers[] = new Autowiring();
         parent::__construct(...$providers);
     }

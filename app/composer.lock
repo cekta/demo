@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eeb77a6c9dc9f8099c3a996d744c0f07",
+    "content-hash": "2893b40ae504efea63992ddc4e5bcd8d",
     "packages": [
         {
             "name": "cekta/di",
-            "version": "v0.1.0",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cekta/di.git",
-                "reference": "af94efe38616f67541b499bd1741ca65ec74e617"
+                "reference": "61bc83443461b985851b235e8d2ac75b4176860c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cekta/di/zipball/af94efe38616f67541b499bd1741ca65ec74e617",
-                "reference": "af94efe38616f67541b499bd1741ca65ec74e617",
+                "url": "https://api.github.com/repos/cekta/di/zipball/61bc83443461b985851b235e8d2ac75b4176860c",
+                "reference": "61bc83443461b985851b235e8d2ac75b4176860c",
                 "shasum": ""
             },
             "require": {
@@ -49,7 +49,14 @@
                 }
             ],
             "description": "psr/container implementation for humans",
-            "time": "2019-09-02T14:43:00+00:00"
+            "keywords": [
+                "PSR-11",
+                "container",
+                "dependency injection",
+                "di",
+                "psr container"
+            ],
+            "time": "2019-10-27T14:14:08+00:00"
         },
         {
             "name": "cekta/http-server",

@@ -14,3 +14,11 @@ services:
       target: developer
     volumes:
       - ./app:/app
+    environment:
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - 5432:5432

@@ -6,10 +6,15 @@ services:
       target: production
     # todo set image
     #image: cekta/demo:app
-
   nginx:
     build:
       context: ../nginx
       target: production
     # todo set image
     #image: cekta/demo:nginx
+  migration:
+    build:
+      context: ../app
+      target: migration
+    # todo set image
+    #image: cekta/demo:migration

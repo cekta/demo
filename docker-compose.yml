@@ -16,6 +16,8 @@ services:
       - ./app:/app
     environment:
       DB_PASSWORD: ${POSTGRES_PASSWORD}
+    depends_on:
+      - db
   db:
     image: postgres
     environment:

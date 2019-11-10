@@ -15,7 +15,8 @@
         "cekta/http-server": "@dev",
         "zendframework/zend-diactoros": "^2.1",
         "cekta/di": "^0.2.0",
-        "vlucas/phpdotenv": "^3.6"
+        "vlucas/phpdotenv": "^3.6",
+        "doctrine/migrations": "^2.1"
     },
     "autoload": {
         "psr-4": {

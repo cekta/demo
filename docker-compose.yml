@@ -1,26 +1,23 @@
 version: '3.7'
 services:
-  nginx:
-    build:
-      context: nginx
-      target: developer
-    ports:
-      - 8080:80
-    depends_on:
-      - app
   app:
     build:
       context: app
       target: developer
     volumes:
       - ./app:/app
+      - ./app/developer/php.ini:/usr/local/etc/php/php.ini
     environment:
-      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_PASSWORD: ${DB_PASSWORD}
     depends_on:
       - db
-  db:
-    image: postgres
-    environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
-      - 5432:5432
+      - 8080:8080
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3306:3306

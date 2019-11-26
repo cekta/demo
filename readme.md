@@ -2,63 +2,77 @@
 
 Этот репозиторий содержит 
 [целый плейлист на youtube](https://www.youtube.com/watch?v=_yIflB_pgXo&list=PL7Nh93imVuXwJ0bYlpfu84MhwQmDoSOia)
-объяснящий основы обработки http запросов
+объяснящий основы обработки http запросов, плейлист может со временем пополнятся.
 
 ## Dev окружение
 
+Для запуска требуется:
+1. [Docker engine](https://docs.docker.com/install/)
+2. [Docker compose](https://docs.docker.com/compose/install/)
+
+### Запуск dev окружения
+
 ```
 docker-compose up -d
 ```
+
+На dev окружение доступен hot reload изменений.
 
 ## Build for production
 
-Это лишь пример как можно все собрать в образы и потом запускать где угодно.
-
-Если вам не нравится docker и образы, вы можете сделать свой скрипт сборки в архив и потом разворачивать его в ansible 
-или любом удобном вам варианте.
-
-Подготовка (один раз)
-``` 
-vim build/docker-compose.yml # Укажите image куда пушить
+Перед сборкой укажите корректный image, чтобы туда пушить изменения.
+```
+vim build/docker-compose.yml
 ```
 
-Сборка и отправка образа
-``` 
+Сборка
+```
 ./build.sh
 ```
 
+Теперь образ запущен, **это самый простейший пример вы можете его доработать под себя**
+
 ## Example production
 
-Это лишь пример как запустить в любом месте, не забывайте указать пути до ваших образов(image) и сделать docker login в 
-ваш registry.
+Что использовать на продакшене это целиком ваш выбор (kubernate, swarm, ...) и его **поддержка**.
 
-В реальности вместо docker-compose можно использовать любые удобные вам оркестраторы.
+Главное что у вас есть готовые образы которые можно запускать как вам угодно.
 
-### Подготовка
-```
-mkdir production
-cd production
-```
+### Простейший пример запуска
 
-Создать файлик docker-compose.yml
-``` 
-version: '3.7'
-services:
-  web:
-    image: cekta/youtube-minimal-knowledge:web
-    restart: always
-    ports:
-      - 80:80
-  api:
-    image: cekta/youtube-minimal-knowledge:api
-    restart: always
-```
+1. Создайте docker-compose.yml на нужном сервере (или вашей рабочей машине).
+    ```
+    version: '3.7'
+    services:
+      nginx:
+        # image: cekta/demo:nginx # Укажите путь до образа на шаге build
+        restart: always
+        ports:
+          - 80:80
+      app:
+        # image: cekta/demo:app # Укажите путь до образа на шаге build
+        restart: always
+      migration:
+        # image: cekta/demo:migration # Укажите путь до образа на шаге build
+    ```
+2. Запустите docker-compose
+    ```
+    docker-compose pull
+    docker-compose up -d
+    ```
 
-### Получение новой версии и релиз
+### Простейший пример обновления
 
-```
-docker-compose pull
-docker-compose up -d
-```
+1. Сделать build for production
+    ``` 
+    ./build.sh
+    ```
+2. Повторно запустить на сервере docker-compose
+    ```
+    docker-compose pull
+    docker-compose up -d
+    ```
 
-Вам не нужны исходные коды, все что необходимо уже в образах.
+В этом варианте возможен небольшой downtime на период пока устанавливаются миграции.
+
+**Вы всегда можете сделать свой вариант используя готовые образы.**

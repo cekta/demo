@@ -16,7 +16,7 @@ CMD ["./cmd.sh"]
 EXPOSE 9000
 
 FROM developer as builder
-COPY ./ /app
+COPY . /app
 RUN rm -rf /app/vendor \
     && composer install
 
@@ -29,3 +29,7 @@ RUN docker-php-ext-install pdo_mysql \
 
 FROM production as migration
 CMD ["app", "migrations:migrate", "-n", "--allow-no-migration"]
+
+FROM nginx as production
+COPY nginx.conf /etc/nginx/nginx.conf
+EXPOSE 80

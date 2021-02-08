@@ -15,21 +15,22 @@ WORKDIR /app
 CMD ["./cmd.sh"]
 EXPOSE 9000
 
-FROM developer as builder
-COPY . /app
-RUN rm -rf /app/vendor \
-    && composer install
-
 FROM php:7.2-fpm as production
-COPY --from=builder /app /app
+COPY . /app/
+WORKDIR /app
 COPY production/php-fpm.conf /usr/local/etc/
 COPY production/php.ini /usr/local/etc/php/
-RUN docker-php-ext-install pdo_mysql \
-    && ln -s /app/cli.php /usr/local/bin/app
+RUN apt-get update \
+    && apt-get install -y git unzip wait-for-it \
+    && docker-php-ext-install pdo_mysql \
+    && curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --quiet \
+    && ln -s /app/cli.php /usr/local/bin/app \
+    && rm -rf /app/vendor \
+    && composer install
 
 FROM production as migration
 CMD ["app", "migrations:migrate", "-n", "--allow-no-migration"]
 
-FROM nginx as production
+FROM nginx
+COPY /public /app/public
 COPY nginx.conf /etc/nginx/nginx.conf
-EXPOSE 80

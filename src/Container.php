@@ -11,7 +11,7 @@ class Container extends \Cekta\DI\Container
 {
     public function __construct()
     {
-        $dotenv = Dotenv::create(__DIR__ . "/../");
+        $dotenv = Dotenv::create(__DIR__ . '/../');
         $dotenv->load();
         $providers[] = new KeyValue(array_map(function ($value) {
             if (is_string($value)) {

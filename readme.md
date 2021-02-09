@@ -22,7 +22,7 @@ docker-compose up -d
 
 Перед сборкой укажите корректный image, чтобы туда пушить изменения.
 ```
-vim docker/docker-compose-builder.yml
+vim docker-compose.yml
 ```
 
 Сборка
@@ -57,8 +57,8 @@ vim docker/docker-compose-builder.yml
     ```
 2. Запустите docker-compose
     ```
-    docker-compose -f docker/docker-compose-builder.yml pull
-    docker-compose -f docker/docker-compose-builder.yml up -d
+    docker-compose -f docker/docker-compose.yml pull
+    docker-compose -f docker/docker-compose.yml up -d
     ```
 
 ### Простейший пример обновления
@@ -69,8 +69,8 @@ vim docker/docker-compose-builder.yml
     ```
 2. Повторно запустить на сервере docker-compose
     ```
-    docker-compose -f docker/docker-compose-builder.yml pull
-    docker-compose -f docker/docker-compose-builder.yml up -d
+    docker-compose -f docker/docker-compose.yml pull
+    docker-compose -f docker/docker-compose.yml up -d
     ```
 
 В этом варианте возможен небольшой downtime на период пока устанавливаются миграции.

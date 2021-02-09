@@ -2,7 +2,7 @@
 
 Этот репозиторий содержит 
 [целый плейлист на youtube](https://www.youtube.com/watch?v=_yIflB_pgXo&list=PL7Nh93imVuXwJ0bYlpfu84MhwQmDoSOia)
-объяснящий основы обработки http запросов, плейлист может со временем пополнятся.
+объясняющий основы обработки http запросов, плейлист может со временем пополнятся.
 
 ## Dev окружение
 
@@ -22,7 +22,7 @@ docker-compose up -d
 
 Перед сборкой укажите корректный image, чтобы туда пушить изменения.
 ```
-vim build/docker-compose.yml
+vim docker-compose.yml
 ```
 
 Сборка
@@ -30,7 +30,7 @@ vim build/docker-compose.yml
 ./build.sh
 ```
 
-Теперь образ запущен, **это самый простейший пример вы можете его доработать под себя**
+Теперь образ запущен - **это самый простой пример вы можете его доработать под себя**
 
 ## Example production
 
@@ -57,8 +57,8 @@ vim build/docker-compose.yml
     ```
 2. Запустите docker-compose
     ```
-    docker-compose pull
-    docker-compose up -d
+    docker-compose -f docker/docker-compose.yml pull
+    docker-compose -f docker/docker-compose.yml up -d
     ```
 
 ### Простейший пример обновления
@@ -69,8 +69,8 @@ vim build/docker-compose.yml
     ```
 2. Повторно запустить на сервере docker-compose
     ```
-    docker-compose pull
-    docker-compose up -d
+    docker-compose -f docker/docker-compose.yml pull
+    docker-compose -f docker/docker-compose.yml up -d
     ```
 
 В этом варианте возможен небольшой downtime на период пока устанавливаются миграции.

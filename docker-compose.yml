@@ -2,11 +2,10 @@ version: '3.7'
 services:
   app:
     build:
-      context: app
+      context: .
       target: developer
     volumes:
-      - ./app:/app
-      - ./app/developer/php.ini:/usr/local/etc/php/php.ini
+      - .:/app
     environment:
       DB_PASSWORD: ${DB_PASSWORD}
     depends_on:

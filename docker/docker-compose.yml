@@ -2,16 +2,15 @@ version: '3.7'
 services:
   app:
     build:
-      context: ../app
+      context: ..
       target: production
     #image: cekta/demo:app
   nginx:
     build:
-      context: ../nginx
-      target: production
+      context: ..
     #image: cekta/demo:nginx
-  migration:
-    build:
-      context: ../app
-      target: migration
+#  migration:
+#    build:
+#      context: ..
+#      target: migration
     #image: cekta/demo:migration

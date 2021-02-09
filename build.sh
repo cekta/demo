@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-cd build || exit 1
-docker-compose build
-docker-compose push
+cd docker || exit 1
+docker-compose -f docker-compose.yml build
+docker-compose -f docker-compose.yml push

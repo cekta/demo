@@ -6,7 +6,6 @@ services:
       target: developer
     volumes:
       - .:/app
-      - ./developer/php.ini:/usr/local/etc/php/php.ini
     environment:
       DB_PASSWORD: ${DB_PASSWORD}
     depends_on:

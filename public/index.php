@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 use App\ContainerBuilder;
 use Cekta\HTTP\Server\SapiEmitter;
+use Laminas\Diactoros\ServerRequestFactory;
 use Psr\Http\Server\RequestHandlerInterface;
-use Zend\Diactoros\ServerRequestFactory;
 
 require __DIR__ . '/../vendor/autoload.php';
 

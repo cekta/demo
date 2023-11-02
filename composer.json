@@ -11,9 +11,10 @@
     "require": {
         "cekta/routing-nikic": "@dev",
         "cekta/http-server": "@dev",
-        "zendframework/zend-diactoros": "@stable",
-        "cekta/di": "@stable",
-        "vlucas/phpdotenv": "@stable"
+        "laminas/laminas-diactoros": "@stable",
+        "cekta/di": "^1.0",
+        "cekta/migrator": "dev-master",
+        "ext-pdo": "*"
     },
     "autoload": {
         "psr-4": {

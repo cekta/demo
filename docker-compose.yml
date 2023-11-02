@@ -7,16 +7,26 @@ services:
     volumes:
       - .:/app
     environment:
-      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME:-dev}
+      DB_USER: ${DB_USER:-root}
+      DB_PASSWORD: ${DB_PASSWORD:-12345}
+      DB_HOST: ${DB_HOST:-db}
+      DB_TYPE: ${DB_TYPE:-mysql}
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
       - 8080:8080
+
   db:
-    image: mysql
+    image: mysql:8
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_DATABASE: ${DB_NAME}
-    command: --default-authentication-plugin=mysql_native_password
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-12345}
+      MYSQL_DATABASE: ${DB_NAME:-dev}
     ports:
       - 3306:3306
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      interval: 5s
+      timeout: 1s
+      retries: 20
